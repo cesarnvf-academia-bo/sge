@@ -8,7 +8,7 @@ import { Cliente } from './cliente';
 })
 export class ClienteService {
   private http = inject(HttpClient);
-  private baseUrl = '/api/v1/cliente';
+  private baseUrl = 'http://localhost:3000/api/v1/cliente';
 
   getClientes(): Observable<Cliente[]> {
     return this.http.get<Cliente[]>(this.baseUrl);

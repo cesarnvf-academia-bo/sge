@@ -8,7 +8,7 @@ import { Sucursal } from './sucursal';
 })
 export class SucursalService {
   private http = inject(HttpClient);
-  private baseUrl = '/api/v1/sucursal';
+  private baseUrl = 'http://localhost:3000/api/v1/sucursal';
 
   getSucursales(): Observable<Sucursal[]> {
     return this.http.get<Sucursal[]>(this.baseUrl);
