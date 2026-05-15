@@ -1,0 +1,16 @@
+/* Estilos para cliente-list */
+.container {
+  max-width: 100%;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.action-btn {
+  transition: all 0.2s ease;
+}
+
+.action-btn:hover {
+  transform: scale(1.1);
+}

@@ -1,0 +1,39 @@
+DROP SCHEMA IF EXISTS public CASCADE;
+
+CREATE SCHEMA public;
+
+CREATE TABLE IF NOT EXISTS cliente (
+    id SERIAL PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    apellido VARCHAR(100) NOT NULL,
+    ci VARCHAR(20) UNIQUE,
+    telefono VARCHAR(20),
+    email VARCHAR(100),
+    direccion TEXT,
+    fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS sucursal (
+    id SERIAL PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    direccion TEXT NOT NULL,
+    ciudad VARCHAR(100),
+    telefono VARCHAR(20)
+);
+
+CREATE TABLE IF NOT EXISTS contacto_cliente (
+    id SERIAL PRIMARY KEY,
+    cliente_id INT REFERENCES cliente(id) ON DELETE CASCADE,
+    tipo VARCHAR(50) NOT NULL,
+    nombre VARCHAR(100) NOT NULL,
+    telefono VARCHAR(20)
+);
+
+CREATE TABLE IF NOT EXISTS usuario (
+    id SERIAL PRIMARY KEY,
+    usuario VARCHAR(100) NOT NULL UNIQUE,
+    clave VARCHAR(100) NOT NULL
+);
+
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO PUBLIC;

@@ -1,0 +1,60 @@
+<div class="container mx-auto p-4">
+  <div class="max-w-2xl mx-auto bg-white p-6 rounded-lg shadow-md">
+    <h1 class="text-2xl font-bold text-gray-800 mb-6">
+      {{ isEditMode() ? 'Editar Sucursal' : 'Nueva Sucursal' }}
+    </h1>
+
+    <form [formGroup]="sucursalForm" (ngSubmit)="guardar()">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="mb-4">
+          <label for="nombre" class="block text-sm font-medium text-gray-700">Nombre *</label>
+          <input
+            id="nombre"
+            type="text"
+            formControlName="nombre"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 border p-2"
+          />
+          @if (sucursalForm.get('nombre')?.touched && sucursalForm.get('nombre')?.invalid) {
+          <span class="text-red-500 text-sm">Nombre es requerido (max 100 caracteres)</span>
+          }
+        </div>
+
+        <div class="mb-4">
+          <label for="ciudad" class="block text-sm font-medium text-gray-700">Ciudad</label>
+          <input id="ciudad" type="text" formControlName="ciudad" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 border p-2" />
+        </div>
+
+        <div class="mb-4">
+          <label for="telefono" class="block text-sm font-medium text-gray-700">Teléfono</label>
+          <input id="telefono" type="text" formControlName="telefono" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 border p-2" />
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <label for="direccion" class="block text-sm font-medium text-gray-700">Dirección *</label>
+        <textarea
+          id="direccion"
+          formControlName="direccion"
+          rows="3"
+          class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 border p-2"
+        ></textarea>
+        @if (sucursalForm.get('direccion')?.touched && sucursalForm.get('direccion')?.invalid) {
+        <span class="text-red-500 text-sm">Dirección es requerida</span>
+        }
+      </div>
+
+      <div class="flex justify-end gap-2">
+        <button type="button" (click)="cancelar()" class="p-2 bg-gray-500 hover:bg-gray-600 text-white rounded" title="Cancelar">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+        <button type="submit" class="p-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded" title="Guardar">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          </svg>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

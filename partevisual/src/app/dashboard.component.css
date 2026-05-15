@@ -1,0 +1,20 @@
+/* Estilos para dashboard */
+.sidebar {
+  transition: width 0.3s ease;
+}
+
+.menu-item {
+  transition: all 0.2s ease;
+}
+
+.menu-item:hover {
+  transform: translateX(4px);
+}
+
+.header-btn {
+  transition: all 0.2s ease;
+}
+
+.header-btn:hover {
+  transform: scale(1.05);
+}

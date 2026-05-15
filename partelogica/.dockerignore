@@ -1,0 +1,13 @@
+node_modules
+dist
+*.md
+.git
+.gitignore
+.env
+*.log
+coverage
+jest.config.js
+nest-cli.json
+.vscode
+.editorconfig
+.prettierrc
